@@ -12,6 +12,9 @@ def datetime_response(value):
 def del_html(value):
     return value.strip()
 
+def encod_string(value):
+    value.encode('utf-8')
+
 
 def digit_some(value):
     if 'k' in value:
@@ -30,7 +33,7 @@ def get_unicode_string(value):
 
 class ScrapyLastCommit(Item):
     author = Field(output_processor=TakeFirst())
-    name = Field(input_processor=MapCompose(del_html, get_unicode_string), output_processor=Join())
+    name = Field(input_processor=MapCompose(del_html), output_processor=TakeFirst())
     datetime_UTC = Field(input_processor=MapCompose(del_html, datetime_response), output_processor=TakeFirst())
 
 

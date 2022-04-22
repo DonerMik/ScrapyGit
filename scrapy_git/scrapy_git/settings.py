@@ -62,7 +62,14 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
+ITEM_PIPELINES = {
+    'scrapy_git.pipelines.MongoDBPipeline': 800
+}
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "scrapygit"
+MONGODB_COLLECTION = "repositories"
 #    'scrapy_git.pipelines.ScrapyGitPipeline': 300,
 #}
 

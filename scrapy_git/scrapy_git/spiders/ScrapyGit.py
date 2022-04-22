@@ -1,16 +1,31 @@
+import pathlib
+from pathlib import Path
+
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.loader import ItemLoader
 
 from ..items import ScrapyGitItem, ScrapyLastCommit, ScrapyLastRelease
 
+dir_path = pathlib.Path.home()
+path = Path(dir_path, 'scrapy_git', 'link_user_git.txt')
+
 
 class GitSpider(CrawlSpider):
     name = 'git_spider'
     allowed_domain = ['github.com']
-    start_urls = ['https://github.com/scrapy']
-    rules = (Rule(LinkExtractor(restrict_xpaths=['//a[@class="UnderlineNav-item "]']), follow=True),
+    start_urls = []
+    rules = (Rule(LinkExtractor(restrict_xpaths=['//a[@class="UnderlineNav-item "]',
+                                                 '//a[@data-tab-item="repositories"]']), follow=True),
              Rule(LinkExtractor(restrict_xpaths=['//h3[@class="wb-break-all"]']), callback='parse_item'),)
+
+    def __init__(self):
+        super(GitSpider, self).__init__()
+        self.start_urls = input('Введите ссылки: ').split()
+        # [self.start_urls.append(url) for url in urls]
+    #
+    #     # for line in open('../link_user_git.txt', 'r').readlines():
+    #     #     self.start_urls.append(line)
 
 
     def parse_release(self, response):
