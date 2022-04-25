@@ -7,7 +7,7 @@ from .views import GitLinkViewSet, RepositoriesViewSet, count_links, count_repos
 
 router = DefaultRouter()
 
-router.register(r'list_link/(?P<slug>\w+)', RepositoriesViewSet, basename='repositories')
+router.register(r'list_link/(?P<slug>\w+)/', RepositoriesViewSet, basename='repositories')
 router.register('list_link', GitLinkViewSet, basename='gitlinks')
 
 urlpatterns = [
@@ -18,5 +18,3 @@ urlpatterns = [
     path('max_commit_repository', max_commit_repository),
     path('avg_stars_repository', avg_stars_repository)
 ]
-
-
