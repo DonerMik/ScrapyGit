@@ -1,6 +1,7 @@
+import json
+
 from bson.json_util import dumps
 from pymongo import MongoClient
-import json
 
 if __name__ == '__main__':
     client = MongoClient()

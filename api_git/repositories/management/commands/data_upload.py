@@ -1,13 +1,11 @@
-import os
 import csv
-from bson.json_util import dumps
-from pymongo import MongoClient
 import json
+import os
 
-from django.core.management.base import BaseCommand
+from bson.json_util import dumps
 from django.conf import settings
-
-
+from django.core.management.base import BaseCommand
+from pymongo import MongoClient
 from repositories.models import GitLink, LastCommit, LastRelease, Repositories
 
 

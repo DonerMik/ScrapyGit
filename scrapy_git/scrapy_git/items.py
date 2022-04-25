@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from itemloaders.processors import TakeFirst, MapCompose, Join
+from itemloaders.processors import Join, MapCompose, TakeFirst
 from scrapy import Field, Item
 
 

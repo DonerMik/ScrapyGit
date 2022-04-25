@@ -1,6 +1,5 @@
+from repositories.models import GitLink, LastCommit, LastRelease, Repositories
 from rest_framework import serializers
-
-from repositories.models import GitLink, Repositories, LastRelease, LastCommit
 
 
 class GitlinkSerializer(serializers.ModelSerializer):

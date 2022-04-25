@@ -1,9 +1,9 @@
 from django.urls import include, path
-
 from rest_framework.routers import DefaultRouter
 
-from .views import GitLinkViewSet, RepositoriesViewSet, count_links, count_repositories, avg_repositories, \
-    max_commit_repository, avg_stars_repository
+from .views import (GitLinkViewSet, RepositoriesViewSet, avg_repositories,
+                    avg_stars_repository, count_links, count_repositories,
+                    max_commit_repository)
 
 router = DefaultRouter()
 

@@ -1,10 +1,9 @@
 import pathlib
 from pathlib import Path
 
-
-from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.loader import ItemLoader
+from scrapy.spiders import CrawlSpider, Rule
 
 from ..items import ScrapyGitItem, ScrapyLastCommit, ScrapyLastRelease
 
