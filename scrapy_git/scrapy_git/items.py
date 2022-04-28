@@ -25,13 +25,12 @@ def encod_string(value):
 
 def digit_some(value):
 
-    """ Функция принимает строку, которой число с точнкой либо буквой К.
+    """ Функция принимает строку, в которой число с точнкой либо буквой К.
 Возвращает значение строки в число.
     """
 
     if 'k' in value:
         value = value.replace('k', '').replace('.', '')
-        print(value)
         return int(value)*100
     if ',' in value:
         value = value.replace(',', '')
